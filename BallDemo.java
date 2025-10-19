@@ -30,10 +30,15 @@ public class BallDemo
      * 
      * @param numOfBalls number of balls to simulate bouncing, clamped between 5-50. 
      */
-    public void boxBounce()
+    public void boxBounce(int numOfBalls)
     {
         // you must implement this
-        
+        // clamp between 5 and 30
+        if (numOfBalls < 5) 
+        numOfBalls = 5;
+        if (numOfBalls > 30) 
+        numOfBalls = 30;
+       
     }
     
     /**
