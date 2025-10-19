@@ -18,8 +18,9 @@ import java.awt.geom.*;
  * @author David J. Barnes
  * @author Bruce Quig
  * @author William Crosbie
- *
- * @version 2025.10.06
+ * 
+ * @author Sahar Naz
+ * @version 2025.10.19
  */
 
 public class BoxBall
@@ -82,10 +83,28 @@ public class BoxBall
         erase();
             
         // compute new position
+        xPosition += xSpeed;
+        yPosition += ySpeed;
   
         // figure out if it has hit the left or right wall
+        if (xPosition <= myBox.getLeftWall()) {
+        xPosition = myBox.getLeftWall();
+        xSpeed = -xSpeed;
+    }
+    else if (xPosition >= (myBox.getRightWall() - diameter)) {
+        xPosition = myBox.getRightWall() - diameter;
+        xSpeed = -xSpeed;
+    }
         
         // figure out if it has hit the top or bottom wall
+    if (yPosition <= myBox.getTopWall()) {
+        yPosition = myBox.getTopWall();
+        ySpeed = -ySpeed;
+    }
+    else if (yPosition >= (myBox.getBottomWall() - diameter)) {
+        yPosition = myBox.getBottomWall() - diameter;
+        ySpeed = -ySpeed;
+    }
         
         draw();
     }    
