@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
+import java.util.Random;
 
 /**
  * Class BoxBall - a graphical ball that moves similar to the ball in PONG.
@@ -55,6 +56,16 @@ public class BoxBall
         diameter = ballDiameter;
 
         canvas = drawingCanvas;
+        
+        Random rand = new Random();
+        // random speeds between -7 and +7, excluding 0
+        do {
+            xSpeed = rand.nextInt(15) - 7;
+        } while (xSpeed == 0);
+        
+        do {
+            ySpeed = rand.nextInt(15) - 7;
+        } while (ySpeed == 0);
     }
 
     /**
