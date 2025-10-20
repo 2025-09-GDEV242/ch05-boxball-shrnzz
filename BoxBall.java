@@ -57,6 +57,7 @@ public class BoxBall
 
         canvas = drawingCanvas;
         
+        
         Random rand = new Random();
         // random speeds between -7 and +7, excluding 0
         do {

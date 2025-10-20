@@ -53,12 +53,33 @@ public class BallDemo
         int top = box.getTopWall();
         int bottom = box.getBottomWall();
         
-        
-        
-        
+        // create balls
+        for (int i = 0; i < numOfBalls; i++) {
+            int diameter = rand.nextInt(20) + 10; // 10–30 pixels
+            int x = rand.nextInt(right - left - diameter) + left;
+            int y = rand.nextInt(bottom - top - diameter) + top;
+            
+            // create random colors
+            int r = rand.nextInt(200);
+            int g = rand.nextInt(200);
+            int b = rand.nextInt(200);
+            Color color = new Color(r, g, b);
+            
+            BoxBall bball = new BoxBall(x, y, diameter, color, box, myCanvas);
+            bball.draw();
+            balls.add(bball);
        
-    }
+        }
     
+        // make balls move forever 
+        while (true) {
+        myCanvas.wait(50);
+        for (BoxBall ball : balls) {
+            ball.move();
+        }
+        box.draw(); // redraw box so edges stay visible
+        }
+    }
     /**
      * Simulate two bouncing balls
      */
