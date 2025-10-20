@@ -41,19 +41,23 @@ public class BallDemo
         if (numOfBalls > 50) 
         numOfBalls = 50;
         
+        // make the canvas visible and clear any old drawings 
         myCanvas.setVisible(true);
         myCanvas.erase();
+        
+        // draw box once so it stays on the screen 
         box.draw();
+    
+        Random rand = new Random(); // generate random number 
+        ArrayList<BoxBall> balls = new ArrayList<>(); // array list to store all balls 
         
-        Random rand = new Random();
-        ArrayList<BoxBall> balls = new ArrayList<>();
-        
+        // variables for box boundaries 
         int left = box.getLeftWall();
         int right = box.getRightWall();
         int top = box.getTopWall();
         int bottom = box.getBottomWall();
         
-        // create balls
+        // create balls with random size, color and position 
         for (int i = 0; i < numOfBalls; i++) {
             int diameter = rand.nextInt(20) + 10; // 10–30 pixels
             int x = rand.nextInt(right - left - diameter) + left;
@@ -65,17 +69,18 @@ public class BallDemo
             int b = rand.nextInt(200);
             Color color = new Color(r, g, b);
             
+            // create and draw the new ball 
             BoxBall bball = new BoxBall(x, y, diameter, color, box, myCanvas);
             bball.draw();
-            balls.add(bball);
+            balls.add(bball); // add ball to list 
        
         }
     
         // make balls move forever 
         while (true) {
-        myCanvas.wait(50);
+        myCanvas.wait(50); // short pause for smoother transition 
         for (BoxBall ball : balls) {
-            ball.move();
+            ball.move(); // move each ball 
         }
         box.draw(); // redraw box so edges stay visible
         }
