@@ -36,8 +36,8 @@ public class BallDemo
         // clamp between 5 and 30
         if (numOfBalls < 5) 
         numOfBalls = 5;
-        if (numOfBalls > 30) 
-        numOfBalls = 30;
+        if (numOfBalls > 50) 
+        numOfBalls = 50;
        
     }
     
