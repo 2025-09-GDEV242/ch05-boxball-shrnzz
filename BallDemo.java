@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.util.*;
+import java.util.Random;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -38,6 +40,22 @@ public class BallDemo
         numOfBalls = 5;
         if (numOfBalls > 50) 
         numOfBalls = 50;
+        
+        myCanvas.setVisible(true);
+        myCanvas.erase();
+        box.draw();
+        
+        Random rand = new Random();
+        ArrayList<BoxBall> balls = new ArrayList<>();
+        
+        int left = box.getLeftWall();
+        int right = box.getRightWall();
+        int top = box.getTopWall();
+        int bottom = box.getBottomWall();
+        
+        
+        
+        
        
     }
     
