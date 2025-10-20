@@ -54,9 +54,9 @@ public class BoxBall
         yPosition = yPos;
         color = ballColor;
         diameter = ballDiameter;
-
         canvas = drawingCanvas;
         
+        this.myBox = box;
         
         Random rand = new Random();
         // random speeds between -7 and +7, excluding 0
