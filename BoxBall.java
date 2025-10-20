@@ -50,20 +50,28 @@ public class BoxBall
     public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
                         Box box, Canvas drawingCanvas)
     {
+        // set the balls starting position
         xPosition = xPos;
         yPosition = yPos;
+        
+        // set the balls color and size 
         color = ballColor;
         diameter = ballDiameter;
+        
+        // store the canvas used for drawing the ball 
         canvas = drawingCanvas;
         
+        // store the box this ball will bounce inside 
         this.myBox = box;
         
         Random rand = new Random();
         // random speeds between -7 and +7, excluding 0
+        // horizontal 
         do {
             xSpeed = rand.nextInt(15) - 7;
         } while (xSpeed == 0);
         
+        // vertical 
         do {
             ySpeed = rand.nextInt(15) - 7;
         } while (ySpeed == 0);
